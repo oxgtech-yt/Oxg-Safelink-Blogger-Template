@@ -20,10 +20,11 @@
 On **HTML** Mode
 
 **For Loading Bar**       ```<div id="loadingbar"></div>```
-
 **For SafeLink Timer**     ```<div id='output'></div>```
 
 more information watch video: https://youtube.com/@oxgtech
+
+
 
 Layout > page-setting > setting
 
