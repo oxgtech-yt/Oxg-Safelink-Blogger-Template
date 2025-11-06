@@ -2,7 +2,7 @@
 
 🔐 Simple Safelink Template Blogger
 
-![DEMO] <img width="1440" height="725" alt="Screenshot" src="https://github.com/user-attachments/assets/bcdae5d4-be5b-46aa-ae39-b9952a0572c9" />
+[DEMO] <img width="1440" height="725" alt="Screenshot" src="https://github.com/user-attachments/assets/bcdae5d4-be5b-46aa-ae39-b9952a0572c9" />
 
 
 # Feature
