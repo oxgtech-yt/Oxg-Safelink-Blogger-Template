@@ -273,10 +273,10 @@ body#layout #page-setting {background: #fffcf2}
     --ad-height: 260px;
     --ad-vertical-gap: 12px;
   }
-  .ads-left-top.sticky-top,
-  .ads-right-top.sticky-top { top: var(--ad-sticky-offset); }
+  .slot-left-top.sticky-top,
+  .slot-right-top.sticky-top { top: var(--ad-sticky-offset); }
   .ads-left-bottom.sticky-top,
-  .ads-right-bottom.sticky-top { top: calc(var(--ad-sticky-offset) + var(--ad-height) + var(--ad-vertical-gap)); }
+  .slot-right-bottom.sticky-top { top: calc(var(--ad-sticky-offset) + var(--ad-height) + var(--ad-vertical-gap)); }
   /* Move left sidebar closer to the page edge */
   .sidebar-left { padding-left: 0 !important; margin-left: -36px; margin-right: clamp(12px, 2.5vw, 28px); }
   @media (max-width: 767px) { .sidebar-left { margin-left: 0; margin-right: 0; } }
@@ -366,7 +366,7 @@ lang: {
         <div class='row'>
 
           <aside aria-label='Left Sidebar' class='col-12 col-md-3 mb-3 sidebar-left'>
-            <b:section class='ads-left-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='ads-left-top' maxwidgets='1' showaddelement='yes' title='Left Sticky Ad 1'/>
+            <b:section class='slot-left-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-left-top' maxwidgets='1' showaddelement='yes' title='Left Sticky Slot 1'/>
             <b:section class='ads-left-bottom sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='ads-left-bottom' maxwidgets='2' showaddelement='yes' title='Left Sticky Ads'/>
           </aside>
 
@@ -1160,8 +1160,8 @@ if (!String.prototype.startsWith) {
 
 
           <div class='col-12 col-md-3 order-last mb-3'>
-            <b:section class='ads-right-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='ads-right-top' maxwidgets='1' showaddelement='yes' title='Right Sticky Ad 3'/>
-            <b:section class='ads-right-bottom sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='ads-right-bottom' maxwidgets='2' showaddelement='yes' title='Right Sticky Ads'/>
+            <b:section class='slot-right-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-right-top' maxwidgets='1' showaddelement='yes' title='Right Sticky Slot 3'/>
+            <b:section class='slot-right-bottom sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-right-bottom' maxwidgets='2' showaddelement='yes' title='Right Sticky Slots'/>
           </div>
 
         </div>
