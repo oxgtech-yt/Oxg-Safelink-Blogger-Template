@@ -290,7 +290,11 @@ body#layout #page-setting {background: #fffcf2}
 
           <div class='collapse navbar-collapse justify-content-end' id='navbarSupportedContent'>
             <ul class='navbar-nav ml-auto'>
-              <li class='nav-item dropdown'>
+              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + "p/about-us.html"' title='About Us'>About Us</a></li>
+              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + "p/contact-us.html"' title='Contact Us'>Contact Us</a></li>
+              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + "p/privacy-policy.html"' title='Privacy Policy'>Privacy Policy</a></li>
+              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + "p/terms-conditions.html"' title='Terms &amp; Conditions'>Terms &amp; Conditions</a></li>
+              <li class='nav-item menu-item dropdown'>
                 <a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle px-0' data-toggle='dropdown' href='#' id='navbarDropdown' role='button'>
                   Menu
                 </a>
@@ -878,9 +882,31 @@ if (!String.prototype.startsWith) {
       .post-body a.b-tooltip-container:hover .b-tooltip {
         visibility: visible;
         opacity: 1;
-      }
-    }
-  </style>
+  }
+  }
+  /* Header pages styling and spacing */
+  .navbar .header-page-link {
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: .01em;
+    color: #dc3545; /* Bootstrap danger red */
+  }
+  .navbar .header-page-link:hover {
+    color: #dc3545;
+  }
+  .navbar .menu-item {
+    margin-left: 24px;
+    padding-left: 18px;
+    border-left: 1px solid #e9ecef;
+  }
+  @media (max-width: 767px) { 
+    .navbar .menu-item { 
+      margin-left: 0; 
+      padding-left: 0; 
+      border-left: 0; 
+    } 
+  }
+</style>
   <!-- LINT.ThenChange(//depot/google3/java/com/google/blogger/b2/layouts/widgets/v2-style.css) -->
 </b:includable>
               </b:widget>
