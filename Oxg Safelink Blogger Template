@@ -571,6 +571,9 @@ if (!String.prototype.startsWith) {
               </script>
             </b:if>
 
+            <!-- Home: Before Generator Gadget Section -->
+            <b:section class='before-generator-section mb-3' cond='data:blog.pageType == &quot;index&quot;' id='before-generator' maxwidgets='1' showaddelement='yes' title='Before Generator'/>
+
             <b:if cond='data:view.isMultipleItems'>
 
               <section>
@@ -723,6 +726,8 @@ if (!String.prototype.startsWith) {
                 });
               </script>
             </b:if>
+
+            
 
             <b:section id='page-is' maxwidgets='1' showaddelement='no'>
               <b:widget cond='data:view.isSingleItem' id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
@@ -1145,6 +1150,9 @@ if (!String.prototype.startsWith) {
 </b:includable>
               </b:widget>
             </b:section>
+
+            <!-- After Post Gadget Section -->
+            <b:section class='after-post-section mt-3' cond='data:blog.pageType == &quot;index&quot;' id='after-post' maxwidgets='3' showaddelement='yes' title='After Post'/>
 
             <b:section cond='false' id='reset'/>
 
