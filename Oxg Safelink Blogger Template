@@ -3,7 +3,7 @@
 <html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>&lt;!--/**
 *
 * Created By Oxg Tech
-* NihLink v1.0
+* Oxg Safelink v1.0
 * Author : Syed Alamdar
 * Date	 : 05 November 2025
 * URL 	 : https://youtube.com/@oxgtech
@@ -78,43 +78,43 @@ $(document).ready(function() {
   (function(){
     function initOutputAction(){
       try {
-        var sel = (window.config &amp;&amp; window.config.output) ? window.config.output : '#output';
+        var sel = (window.config &amp;&amp; window.config.output) ? window.config.output : &#39;#output&#39;;
         var out = document.querySelector(sel);
         if(!out || !out.parentNode) return;
 
         // Hide output until user clicks
-        out.style.display = 'none';
+        out.style.display = &#39;none&#39;;
 
         // Define a function to create/show the action button on demand
         window.__showOutputActionButton = function(){
           try {
-            if (document.getElementById('output-action-btn')) return; // already created
-            var btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'action-btn';
-            btn.id = 'output-action-btn';
-            var icon = document.createElement('i');
-            icon.className = 'fas fa-arrow-right';
+            if (document.getElementById(&#39;output-action-btn&#39;)) return; // already created
+            var btn = document.createElement(&#39;button&#39;);
+            btn.type = &#39;button&#39;;
+            btn.className = &#39;action-btn&#39;;
+            btn.id = &#39;output-action-btn&#39;;
+            var icon = document.createElement(&#39;i&#39;);
+            icon.className = &#39;fas fa-arrow-right&#39;;
             btn.appendChild(icon);
-            btn.appendChild(document.createTextNode(' ' + 'Click Here'));
+            btn.appendChild(document.createTextNode(&#39; &#39; + &#39;Click Here&#39;));
 
             // Insert above the output element, centered wrapper
-            var wrap = document.createElement('div');
-            wrap.style.textAlign = 'center';
+            var wrap = document.createElement(&#39;div&#39;);
+            wrap.style.textAlign = &#39;center&#39;;
             wrap.appendChild(btn);
             out.parentNode.insertBefore(wrap, out);
 
-            btn.addEventListener('click', function(){
+            btn.addEventListener(&#39;click&#39;, function(){
               // Disable/hide button and start 10s timer
               btn.disabled = true;
-              btn.style.display = 'none';
+              btn.style.display = &#39;none&#39;;
               // Show output and scroll into view
-              out.style.display = '';
-              if (typeof out.scrollIntoView === 'function') {
-                out.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              out.style.display = &#39;&#39;;
+              if (typeof out.scrollIntoView === &#39;function&#39;) {
+                out.scrollIntoView({ behavior: &#39;smooth&#39;, block: &#39;start&#39; });
               }
               try {
-                if (typeof window.__startOutputTimer === 'function') {
+                if (typeof window.__startOutputTimer === &#39;function&#39;) {
                   window.__startOutputTimer();
                 }
               } catch(e) {}
@@ -123,8 +123,8 @@ $(document).ready(function() {
         };
       } catch(e) {}
     }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initOutputAction);
+    if (document.readyState === &#39;loading&#39;) {
+      document.addEventListener(&#39;DOMContentLoaded&#39;, initOutputAction);
     } else {
       initOutputAction();
     }
@@ -143,7 +143,7 @@ body#layout .layouthide {display:none}
 ]]></b:skin>
 
 <b:template-skin><![CDATA[
-body#layout:before{content:"NihLink v2.6.5";position:absolute;top:33px;right:7px;z-index:1;padding:10px 20px;font-size:18px;font-family:sans-serif;color:#fff;background: #007bff}
+body#layout:before{content:"Oxg Safelink v1.0";position:absolute;top:33px;right:7px;z-index:1;padding:10px 20px;font-size:18px;font-family:sans-serif;color:#fff;background: #007bff}
 body#layout {background-color: #fff; border: 0}
 body#layout div.section {background-color: #fff}
 body#layout .add_widget a {color: #007bff}
@@ -204,7 +204,7 @@ body#layout #page-setting {background: #fffcf2}
     z-index: 2;
     overflow: visible;
   }
-  /* Ensure the report area itself doesn’t clip children */
+  /* Ensure the report area itself doesn&#8217;t clip children */
   #report { overflow: visible; }
   #output .output-progress-track, #report .output-progress-track { height: 12px; background: #e9ecef; border-radius: 9999px; overflow: hidden; position: relative; box-shadow: inset 0 1px 2px rgba(0,0,0,.06); }
   #output .output-progress-fill, #report .output-progress-fill { height: 100%; width: 0; background: linear-gradient(90deg, #4f46e5 0%, #06b6d4 100%); border-radius: 9999px; transition: width 80ms linear; }
@@ -263,9 +263,23 @@ body#layout #page-setting {background: #fffcf2}
 	  background-color: #ffffff;
 	  border-top: 1px solid #dee2e6;
 	}
-	.sticky-top {
-	  top: calc(60px + 1rem)
+  .sticky-top {
+    top: calc(60px + 1rem)
     }
+  /* Sticky stacking for ads: keep both top and bottom visible while scrolling */
+  :root {
+    --ad-sticky-offset: calc(60px + 1rem);
+    /* Approx. ad height; adjust if your unit differs */
+    --ad-height: 260px;
+    --ad-vertical-gap: 12px;
+  }
+  .ads-left-top.sticky-top,
+  .ads-right-top.sticky-top { top: var(--ad-sticky-offset); }
+  .ads-left-bottom.sticky-top,
+  .ads-right-bottom.sticky-top { top: calc(var(--ad-sticky-offset) + var(--ad-height) + var(--ad-vertical-gap)); }
+  /* Move left sidebar closer to the page edge */
+  .sidebar-left { padding-left: 0 !important; margin-left: -36px; margin-right: clamp(12px, 2.5vw, 28px); }
+  @media (max-width: 767px) { .sidebar-left { margin-left: 0; margin-right: 0; } }
 	@media (max-width: 767px) {
     .order-custom {
         -webkit-box-ordinal-group: 2;
@@ -290,10 +304,10 @@ body#layout #page-setting {background: #fffcf2}
 
           <div class='collapse navbar-collapse justify-content-end' id='navbarSupportedContent'>
             <ul class='navbar-nav ml-auto'>
-              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + "p/about-us.html"' title='About Us'>About Us</a></li>
-              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + "p/contact-us.html"' title='Contact Us'>Contact Us</a></li>
-              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + "p/privacy-policy.html"' title='Privacy Policy'>Privacy Policy</a></li>
-              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + "p/terms-conditions.html"' title='Terms &amp; Conditions'>Terms &amp; Conditions</a></li>
+              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + &quot;p/about-us.html&quot;' title='About Us'>About Us</a></li>
+              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + &quot;p/contact-us.html&quot;' title='Contact Us'>Contact Us</a></li>
+              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + &quot;p/privacy-policy.html&quot;' title='Privacy Policy'>Privacy Policy</a></li>
+              <li class='nav-item'><a class='nav-link header-page-link' expr:href='data:blog.homepageUrl + &quot;p/terms-conditions.html&quot;' title='Terms &amp; Conditions'>Terms &amp; Conditions</a></li>
               <li class='nav-item menu-item dropdown'>
                 <a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle px-0' data-toggle='dropdown' href='#' id='navbarDropdown' role='button'>
                   Menu
@@ -351,20 +365,10 @@ lang: {
 
         <div class='row'>
 
-          <div class='col-12 col-md-3 mb-3'>
-            <b:section class='ads-left sticky-top' cond='!data:view.isPreview' id='ads-left' maxwidgets='1'>
-              <b:widget id='HTML602' locked='false' title='left-sidebar-ads' type='HTML' version='2' visible='true'>
-                <b:widget-settings>
-                  <b:widget-setting name='content'><![CDATA[<img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" /><img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" />]]></b:widget-setting>
-                </b:widget-settings>
-                <b:includable id='main'>
-      						<b:if cond='data:view.isSingleItem'>
-      							<data:content/>
-      						</b:if>
-      					</b:includable>
-              </b:widget>
-            </b:section>
-          </div>
+          <aside aria-label='Left Sidebar' class='col-12 col-md-3 mb-3 sidebar-left'>
+            <b:section class='ads-left-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='ads-left-top' maxwidgets='1' showaddelement='yes' title='Left Sticky Ad 1'/>
+            <b:section class='ads-left-bottom sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='ads-left-bottom' maxwidgets='2' showaddelement='yes' title='Left Sticky Ads'/>
+          </aside>
 
 
           <div class='col-12 col-md-6 pb-3'>
@@ -416,22 +420,22 @@ if (!String.prototype.startsWith) {
                           $this.slideUp(&#39;slow&#39;);
                           // Build modern loading bar UI and smooth countdown
                           var duration = (config.timedown || 10) * 1000;
-                          report[0].innerHTML = '';
-                          var container = document.createElement('div');
-                          container.className = 'output-loading-container';
-                          var track = document.createElement('div');
-                          track.className = 'output-progress-track';
-                          var fill = document.createElement('div');
-                          fill.className = 'output-progress-fill';
+                          report[0].innerHTML = &#39;&#39;;
+                          var container = document.createElement(&#39;div&#39;);
+                          container.className = &#39;output-loading-container&#39;;
+                          var track = document.createElement(&#39;div&#39;);
+                          track.className = &#39;output-progress-track&#39;;
+                          var fill = document.createElement(&#39;div&#39;);
+                          fill.className = &#39;output-progress-fill&#39;;
                           track.appendChild(fill);
-                          var text = document.createElement('div');
-                          text.className = 'output-progress-text';
-                          text.textContent = (config.timedown || 10) + 's';
+                          var text = document.createElement(&#39;div&#39;);
+                          text.className = &#39;output-progress-text&#39;;
+                          text.textContent = (config.timedown || 10) + &#39;s&#39;;
                           track.appendChild(text);
                           container.appendChild(track);
-                          var note = document.createElement('div');
-                          note.className = 'output-loading-note';
-                          note.textContent = 'Please Wait...';
+                          var note = document.createElement(&#39;div&#39;);
+                          note.className = &#39;output-loading-note&#39;;
+                          note.textContent = &#39;Please Wait...&#39;;
                           container.appendChild(note);
                           report[0].appendChild(container);
                           try { report[0].parentNode.style.height = &#39;auto&#39;; report[0].parentNode.style.overflow = &#39;visible&#39;; } catch(e) {}
@@ -440,21 +444,21 @@ if (!String.prototype.startsWith) {
                           var MuANasRAR = setInterval(function(){
                             var elapsed = Date.now() - start;
                             var pct = Math.min(elapsed / duration * 100, 100);
-                            fill.style.width = pct + '%';
+                            fill.style.width = pct + &#39;%&#39;;
                             var remaining = Math.ceil((duration - elapsed)/1000);
-                            text.textContent = (remaining > 0 ? remaining : 0) + 's';
-                            if (elapsed >= duration) {
+                            text.textContent = (remaining &gt; 0 ? remaining : 0) + &#39;s&#39;;
+                            if (elapsed &gt;= duration) {
                               clearInterval(MuANasRAR);
-                              var wrap = document.createElement('div');
-                              wrap.className = 'text-center';
-                              var link = document.createElement('a');
-                              link.className = 'go-btn';
-                              link.href = (data.url.toLowerCase().startsWith('www.') ? '//' : '') + data.url;
-                              var ic = document.createElement('i'); ic.className = 'fas fa-external-link-alt';
+                              var wrap = document.createElement(&#39;div&#39;);
+                              wrap.className = &#39;text-center&#39;;
+                              var link = document.createElement(&#39;a&#39;);
+                              link.className = &#39;go-btn&#39;;
+                              link.href = (data.url.toLowerCase().startsWith(&#39;www.&#39;) ? &#39;//&#39; : &#39;&#39;) + data.url;
+                              var ic = document.createElement(&#39;i&#39;); ic.className = &#39;fas fa-external-link-alt&#39;;
                               link.appendChild(ic);
-                              link.appendChild(document.createTextNode(' ' + config.lang.gourltext));
+                              link.appendChild(document.createTextNode(&#39; &#39; + config.lang.gourltext));
                               wrap.appendChild(link);
-                              report[0].innerHTML = '';
+                              report[0].innerHTML = &#39;&#39;;
                               report[0].appendChild(wrap);
                             }
                           }, 80);
@@ -487,41 +491,41 @@ if (!String.prototype.startsWith) {
                       try {
                         var outEl = $(config.output)[0];
                         var d = window.__outputData;
-                        if (!outEl || typeof d !== 'object') return;
+                        if (!outEl || typeof d !== &#39;object&#39;) return;
 
                         // Direct link if countdown disabled
                         if(!d.countdown){
-                          var wrap = document.createElement('div');
-                          wrap.className = 'text-center';
-                          var link = document.createElement('a');
-                          link.className = 'go-btn';
-                          link.href = (d.url.toLowerCase().startsWith('www.') ? '//' : '') + d.url;
-                          var ic = document.createElement('i'); ic.className = 'fas fa-external-link-alt';
+                          var wrap = document.createElement(&#39;div&#39;);
+                          wrap.className = &#39;text-center&#39;;
+                          var link = document.createElement(&#39;a&#39;);
+                          link.className = &#39;go-btn&#39;;
+                          link.href = (d.url.toLowerCase().startsWith(&#39;www.&#39;) ? &#39;//&#39; : &#39;&#39;) + d.url;
+                          var ic = document.createElement(&#39;i&#39;); ic.className = &#39;fas fa-external-link-alt&#39;;
                           link.appendChild(ic);
-                          link.appendChild(document.createTextNode(' ' + config.lang.gourltext));
+                          link.appendChild(document.createTextNode(&#39; &#39; + config.lang.gourltext));
                           wrap.appendChild(link);
-                          outEl.innerHTML = '';
+                          outEl.innerHTML = &#39;&#39;;
                           outEl.appendChild(wrap);
                           return;
                         }
 
                         // Build output loading bar UI (10s)
-                        outEl.innerHTML = '';
-                        var container = document.createElement('div');
-                        container.className = 'output-loading-container';
-                        var track = document.createElement('div');
-                        track.className = 'output-progress-track';
-                        var fill = document.createElement('div');
-                        fill.className = 'output-progress-fill';
+                        outEl.innerHTML = &#39;&#39;;
+                        var container = document.createElement(&#39;div&#39;);
+                        container.className = &#39;output-loading-container&#39;;
+                        var track = document.createElement(&#39;div&#39;);
+                        track.className = &#39;output-progress-track&#39;;
+                        var fill = document.createElement(&#39;div&#39;);
+                        fill.className = &#39;output-progress-fill&#39;;
                         track.appendChild(fill);
-                        var text = document.createElement('div');
-                        text.className = 'output-progress-text';
-                        text.textContent = '10s';
+                        var text = document.createElement(&#39;div&#39;);
+                        text.className = &#39;output-progress-text&#39;;
+                        text.textContent = &#39;10s&#39;;
                         track.appendChild(text);
                         container.appendChild(track);
-                        var note = document.createElement('div');
-                        note.className = 'output-loading-note';
-                        note.textContent = 'Please Wait';
+                        var note = document.createElement(&#39;div&#39;);
+                        note.className = &#39;output-loading-note&#39;;
+                        note.textContent = &#39;Please Wait&#39;;
                         container.appendChild(note);
                         outEl.appendChild(container);
 
@@ -530,22 +534,22 @@ if (!String.prototype.startsWith) {
                         var timer = setInterval(function(){
                           var elapsed = Date.now() - start;
                           var pct = Math.min(elapsed / duration * 100, 100);
-                          fill.style.width = pct + '%';
+                          fill.style.width = pct + &#39;%&#39;;
                           var remaining = Math.ceil((duration - elapsed)/1000);
-                          text.textContent = (remaining > 0 ? remaining : 0) + 's';
-                          if (elapsed >= duration) {
+                          text.textContent = (remaining &gt; 0 ? remaining : 0) + &#39;s&#39;;
+                          if (elapsed &gt;= duration) {
                             clearInterval(timer);
                             // Replace with final link
-                            var wrap = document.createElement('div');
-                            wrap.className = 'text-center';
-                            var link = document.createElement('a');
-                            link.className = 'go-btn';
-                            link.href = (d.url.toLowerCase().startsWith('www.') ? '//' : '') + d.url;
-                            var ic = document.createElement('i'); ic.className = 'fas fa-external-link-alt';
+                            var wrap = document.createElement(&#39;div&#39;);
+                            wrap.className = &#39;text-center&#39;;
+                            var link = document.createElement(&#39;a&#39;);
+                            link.className = &#39;go-btn&#39;;
+                            link.href = (d.url.toLowerCase().startsWith(&#39;www.&#39;) ? &#39;//&#39; : &#39;&#39;) + d.url;
+                            var ic = document.createElement(&#39;i&#39;); ic.className = &#39;fas fa-external-link-alt&#39;;
                             link.appendChild(ic);
-                            link.appendChild(document.createTextNode(' ' + config.lang.gourltext));
+                            link.appendChild(document.createTextNode(&#39; &#39; + config.lang.gourltext));
                             wrap.appendChild(link);
-                            outEl.innerHTML = '';
+                            outEl.innerHTML = &#39;&#39;;
                             outEl.appendChild(wrap);
                           }
                         }, 80);
@@ -817,6 +821,34 @@ if (!String.prototype.startsWith) {
             </b:if>
             </b:if>
             </b:includable>
+                <b:includable id='blogThisShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
+                <b:includable id='bylineByName' var='byline'>
+  <b:switch var='data:byline.name'>
+  <b:case value='share'/>
+    <b:include cond='data:post.shareUrl' name='postShareButtons'/>
+  <b:case value='comments'/>
+    <b:include cond='data:post.allowComments' name='postCommentsLink'/>
+  <b:case value='location'/>
+    <b:include cond='data:post.location' name='postLocation'/>
+  <b:case value='timestamp'/>
+    <b:include cond='not data:view.isPage' name='postTimestamp'/>
+  <b:case value='author'/>
+    <b:include name='postAuthor'/>
+  <b:case value='labels'/>
+    <b:include cond='data:post.labels' name='postLabels'/>
+  <b:case value='icons'/>
+    <b:include cond='data:post.emailPostUrl' name='emailPostIcon'/>
+  </b:switch>
+</b:includable>
+                <b:includable id='bylineRegion' var='regionItems'>
+  <b:loop values='data:regionItems' var='byline'>
+    <b:include data='byline' name='bylineByName'/>
+  </b:loop>
+</b:includable>
                 <b:includable id='commentAuthorAvatar'/>
                 <b:includable id='commentDeleteIcon'/>
                 <b:includable id='commentForm'/>
@@ -825,14 +857,114 @@ if (!String.prototype.startsWith) {
                 <b:includable id='commentList'/>
                 <b:includable id='commentPicker'/>
                 <b:includable id='comments'/>
+                <b:includable id='commentsLink'>
+  <a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
+    <b:if cond='data:post.numberOfComments &gt; 0'>
+      <b:message name='messages.numberOfComments'>
+        <b:param expr:value='data:post.numberOfComments' name='numComments'/>
+      </b:message>
+    <b:else/>
+      <data:messages.postAComment/>
+    </b:if>
+  </a>
+</b:includable>
+                <b:includable id='commentsLinkIframe'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
                 <b:includable id='commentsTitle'/>
+                <b:includable id='defaultAdUnit'>
+  <ins class='adsbygoogle' data-ad-format='auto' expr:data-ad-client='data:adClientId ?: data:blog.adsenseClientId' expr:data-ad-host='data:blog.adsenseHostId' expr:style='data:style ?: &quot;display: block;&quot;'>
+    <b:attr cond='not data:blog.analytics4' expr:value='data:blog.analyticsAccountNumber' name='data-analytics-uacct'/>
+  </ins>
+  <script>
+   (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</b:includable>
+                <b:includable id='emailPostIcon'>
+  <span class='byline post-icons'>
+    <!-- email post links -->
+    <span class='item-action'>
+      <a expr:href='data:post.emailPostUrl' expr:title='data:messages.emailPost'>
+        <b:include data='{ iconClass: &quot;touch-icon sharing-icon&quot; }' name='emailIcon'/>
+      </a>
+    </span>
+  </span>
+</b:includable>
+                <b:includable id='facebookShare'>
+  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
                 <b:includable id='feedLinks'/>
                 <b:includable id='feedLinksBody'/>
+                <b:includable id='footerBylines'>
+  <b:if cond='data:widgets.Blog.first.footerBylines'>
+    <b:loop index='i' values='data:widgets.Blog.first.footerBylines' var='region'>
+      <b:if cond='not data:region.items.empty'>
+        <div expr:class='&quot;post-footer-line post-footer-line-&quot; + (data:i + 1)'>
+          <b:with value='&quot;footer-&quot; + (data:i + 1)' var='regionName'>
+            <b:include data='region.items' name='bylineRegion'/>
+          </b:with>
+        </div>
+      </b:if>
+    </b:loop>
+  </b:if>
+</b:includable>
+                <b:includable id='googlePlusShare'>
+</b:includable>
+                <b:includable id='headerByline'>
+  <b:if cond='data:widgets.Blog.first.headerByline'>
+    <div class='post-header'>
+      <div class='post-header-line-1'>
+        <b:with value='&quot;header-1&quot;' var='regionName'>
+          <b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
+        </b:with>
+      </div>
+    </div>
+  </b:if>
+</b:includable>
                 <b:includable id='homePageLink'/>
                 <b:includable id='iframeComments'/>
                 <b:includable id='inlineAd'/>
+                <b:includable id='linkShare'>
+  <b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
+    <b:include name='platformShare'/>
+  </b:with>
+</b:includable>
                 <b:includable id='nextPageLink'/>
+                <b:includable id='otherSharingButton'>
+  <span class='sharing-platform-button sharing-element-other' expr:aria-label='data:messages.shareToOtherApps.escaped' expr:data-url='data:originalUrl' expr:title='data:messages.shareToOtherApps.escaped' role='menuitem' tabindex='-1'>
+    <b:with value='{key: &quot;sharingOther&quot;}' var='platform'>
+      <b:include name='sharingPlatformIcon'/>
+    </b:with>
+    <span class='platform-sharing-text'><data:messages.shareOtherApps.escaped/></span>
+  </span>
+</b:includable>
+                <b:includable id='platformShare'>
+  <a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key' expr:data-url='data:originalUrl' expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:onclick='data:onclick ? data:onclick : &quot;&quot;' expr:title='data:platform.shareMessage' target='_blank'>
+    <span class='share-button-link-text'>
+      <data:platform.shareMessage/>
+    </span>
+  </a>
+</b:includable>
                 <b:includable id='post'/>
+                <b:includable id='postAuthor'>
+  <span class='byline post-author vcard'>
+    <span class='post-author-label'>
+      <data:byline.label/>
+    </span>
+    <span class='fn'>
+      <b:if cond='data:post.author.profileUrl'>
+        <meta expr:content='data:post.author.profileUrl'/>
+        <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
+          <span><data:post.author.name/></span>
+        </a>
+      <b:else/>
+        <span><data:post.author.name/></span>
+      </b:if>
+    </span>
+  </span>
+</b:includable>
                 <b:includable id='postBody'/>
                 <b:includable id='postBodySnippet'/>
                 <b:includable id='postCommentsAndAd'/>
@@ -841,10 +973,112 @@ if (!String.prototype.startsWith) {
                 <b:includable id='postFooterAuthorProfile'/>
                 <b:includable id='postHeader'/>
                 <b:includable id='postJumpLink'/>
+                <b:includable id='postLabels'>
+  <span class='byline post-labels'>
+    <span class='byline-label'><data:byline.label/></span>
+    <b:loop index='i' values='data:post.labels' var='label'>
+      <a expr:href='data:label.url' rel='tag'>
+        <data:label.name/>
+      </a>
+    </b:loop>
+  </span>
+</b:includable>
+                <b:includable id='postLocation'>
+  <span class='byline post-location'>
+    <data:byline.label/>
+    <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+  </span>
+</b:includable>
                 <b:includable id='postMeta'/>
+                <b:includable id='postMetadataJSONImage'>
+  &quot;image&quot;: {
+    &quot;@type&quot;: &quot;ImageObject&quot;,
+    <b:if cond='data:post.featuredImage.isResizable'>
+    &quot;url&quot;: &quot;<b:eval expr='resizeImage(data:post.featuredImage, 1200, &quot;1200:630&quot;)'/>&quot;,
+    &quot;height&quot;: 630,
+    &quot;width&quot;: 1200
+    <b:else/>
+    &quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/w1200/&quot;,
+    &quot;height&quot;: 348,
+    &quot;width&quot;: 1200
+    </b:if>
+  },
+</b:includable>
+                <b:includable id='postMetadataJSONPublisher'>
+ &quot;publisher&quot;: {
+    &quot;@type&quot;: &quot;Organization&quot;,
+    &quot;name&quot;: &quot;Blogger&quot;,
+    &quot;logo&quot;: {
+      &quot;@type&quot;: &quot;ImageObject&quot;,
+      &quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/h60/&quot;,
+      &quot;width&quot;: 206,
+      &quot;height&quot;: 60
+    }
+  },
+</b:includable>
                 <b:includable id='postPagination'/>
+                <b:includable id='postReactions'>
+  <!-- Reaction feature no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+                <b:includable id='postShareButtons'>
+  <div class='byline post-share-buttons goog-inline-block'>
+    <b:with value='data:sharingId ?: ((data:widget.instanceId ?: &quot;sharing&quot;) + &quot;-&quot; + (data:regionName ?: &quot;byline&quot;) + &quot;-&quot; + data:post.id)' var='sharingId'>
+      <!-- Note: 'sharingButtons' includable is from the default Sharing widget markup. -->
+      <b:include data='{                                                sharingId: data:sharingId,                                                originalUrl: data:post.url,                                                platforms: data:this.sharing.platforms,                                                shareUrl: data:post.shareUrl,                                                shareTitle: data:post.title,                                              }' name='sharingButtons'/>
+    </b:with>
+  </div>
+</b:includable>
+                <b:includable id='postTimestamp'>
+  <span class='byline post-timestamp'>
+    <data:byline.label/>
+    <b:if cond='data:post.url'>
+      <meta expr:content='data:post.url.canonical'/>
+      <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
+        <time class='published' expr:datetime='data:post.date.iso8601' expr:title='data:post.date.iso8601'>
+          <data:post.date/>
+        </time>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
                 <b:includable id='postTitle'/>
                 <b:includable id='previousPageLink'/>
+                <b:includable id='sharingButton'>
+  <span expr:aria-label='data:platform.shareMessage' expr:class='&quot;sharing-platform-button sharing-element-&quot; + data:platform.key' expr:data-href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:data-url='data:originalUrl' expr:title='data:platform.shareMessage' role='menuitem' tabindex='-1'>
+    <b:include name='sharingPlatformIcon'/>
+    <span class='platform-sharing-text'><data:platform.name/></span>
+  </span>
+</b:includable>
+                <b:includable id='sharingButtonContent'>
+  <div class='flat-icon-button ripple'>
+    <b:include name='shareIcon'/>
+  </div>
+</b:includable>
+                <b:includable id='sharingButtons'>
+  <div class='sharing' expr:aria-owns='&quot;sharing-popup-&quot; + data:sharingId' expr:data-title='data:shareTitle'>
+    <button class='sharing-button touch-icon-button' expr:aria-controls='&quot;sharing-popup-&quot; + data:sharingId' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-button-&quot; + data:sharingId' role='button'>
+      <b:include name='sharingButtonContent'/>
+    </button>
+    <b:include name='sharingButtonsMenu'/>
+  </div>
+</b:includable>
+                <b:includable id='sharingButtonsMenu'>
+  <div class='share-buttons-container'>
+    <ul aria-hidden='true' class='share-buttons hidden' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-popup-&quot; + data:sharingId' role='menu'>
+      <b:loop values='(data:platforms ?: data:blog.sharing.platforms) filter (p =&gt; p.key not in {&quot;blogThis&quot;})' var='platform'>
+        <li>
+          <b:include name='sharingButton'/>
+        </li>
+      </b:loop>
+      <li aria-hidden='true' class='hidden'>
+        <b:include name='otherSharingButton'/>
+      </li>
+    </ul>
+  </div>
+</b:includable>
+                <b:includable id='sharingPlatformIcon'>
+  <b:include data='{ iconClass: (&quot;touch-icon sharing-&quot; + data:platform.key) }' expr:name='data:platform.key + &quot;Icon&quot;'/>
+</b:includable>
                 <b:includable id='status-message'/>
                 <b:includable id='threadedCommentForm'/>
                 <b:includable id='threadedCommentJs'/>
@@ -918,18 +1152,8 @@ if (!String.prototype.startsWith) {
 
 
           <div class='col-12 col-md-3 order-last mb-3'>
-            <b:section class='ads-right sticky-top' cond='!data:view.isPreview' id='ads-right' maxwidgets='1'>
-              <b:widget id='HTML704' locked='false' title='right-sidebar-ads' type='HTML' version='2' visible='true'>
-                <b:widget-settings>
-                  <b:widget-setting name='content'><![CDATA[<img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" /><img src="//dummyimage.com/700x700/ccc/777.png&text=+++ADS+++" alt="text=ads" title="ads" class="d-block w-100 mb-3" />]]></b:widget-setting>
-                </b:widget-settings>
-                <b:includable id='main'>
-          				<b:if cond='data:view.isSingleItem'>
-          					<data:content/>
-          				</b:if>
-          			</b:includable>
-              </b:widget>
-            </b:section>
+            <b:section class='ads-right-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='ads-right-top' maxwidgets='1' showaddelement='yes' title='Right Sticky Ad 3'/>
+            <b:section class='ads-right-bottom sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='ads-right-bottom' maxwidgets='2' showaddelement='yes' title='Right Sticky Ads'/>
           </div>
 
         </div>
@@ -974,46 +1198,46 @@ if (!String.prototype.startsWith) {
 <script type='text/javascript'>
   (function(){
     function init(){
-      var anchor = document.querySelector('#loadingbar');
+      var anchor = document.querySelector(&#39;#loadingbar&#39;);
       <!-- Only attach near output element; avoid showing on non-safelink pages -->
       var outSel = (window.config &amp;&amp; window.config.output) ? window.config.output : null;
       var outEl = outSel ? document.querySelector(outSel) : null;
       if(!anchor &amp;&amp; outEl &amp;&amp; outEl.parentNode){
-        var mount = document.createElement('div');
+        var mount = document.createElement(&#39;div&#39;);
         outEl.parentNode.insertBefore(mount, outEl);
         anchor = mount;
       }
       <!-- If neither explicit loadingbar nor output exists, abort -->
       if(!anchor) return;
 
-      var container = document.createElement('div');
-      container.className = 'loading-container';
-      var track = document.createElement('div');
-      track.className = 'progress-track';
-      var fill = document.createElement('div');
-      fill.className = 'progress-fill';
+      var container = document.createElement(&#39;div&#39;);
+      container.className = &#39;loading-container&#39;;
+      var track = document.createElement(&#39;div&#39;);
+      track.className = &#39;progress-track&#39;;
+      var fill = document.createElement(&#39;div&#39;);
+      fill.className = &#39;progress-fill&#39;;
       track.appendChild(fill);
-      var text = document.createElement('div');
-      text.className = 'progress-text';
-      text.textContent = '5s';
+      var text = document.createElement(&#39;div&#39;);
+      text.className = &#39;progress-text&#39;;
+      text.textContent = &#39;5s&#39;;
       track.appendChild(text);
       container.appendChild(track);
       // Below-bar waiting note (XML-safe)
-      var note = document.createElement('div');
-      note.className = 'loading-note';
-      note.textContent = 'Waiting...';
+      var note = document.createElement(&#39;div&#39;);
+      note.className = &#39;loading-note&#39;;
+      note.textContent = &#39;Waiting...&#39;;
       container.appendChild(note);
       anchor.appendChild(container);
 
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'scroll-btn';
+      var btn = document.createElement(&#39;button&#39;);
+      btn.type = &#39;button&#39;;
+      btn.className = &#39;scroll-btn&#39;;
       // Avoid inline HTML strings in XML; build icon + text via DOM
-      var icon = document.createElement('i');
-      icon.className = 'fas fa-arrow-down';
+      var icon = document.createElement(&#39;i&#39;);
+      icon.className = &#39;fas fa-arrow-down&#39;;
       btn.appendChild(icon);
-      btn.appendChild(document.createTextNode(' ' + 'Scroll Down'));
-      btn.style.display = 'none';
+      btn.appendChild(document.createTextNode(&#39; &#39; + &#39;Scroll Down&#39;));
+      btn.style.display = &#39;none&#39;;
       anchor.appendChild(btn);
 
       var duration = 5000;
@@ -1021,36 +1245,36 @@ if (!String.prototype.startsWith) {
       var timer = setInterval(function(){
         var elapsed = Date.now() - start;
         var pct = Math.min(elapsed / duration * 100, 100);
-        fill.style.width = pct + '%';
+        fill.style.width = pct + &#39;%&#39;;
         var remaining = Math.ceil((duration - elapsed)/1000);
-        text.textContent = (remaining &gt; 0 ? remaining : 0) + 's';
+        text.textContent = (remaining &gt; 0 ? remaining : 0) + &#39;s&#39;;
         if (elapsed &gt;= duration) {
           clearInterval(timer);
           if (container &amp;&amp; container.parentNode) container.parentNode.removeChild(container);
-          btn.style.display = 'inline-flex';
+          btn.style.display = &#39;inline-flex&#39;;
         }
       }, 80);
 
-      btn.addEventListener('click', function(){
+      btn.addEventListener(&#39;click&#39;, function(){
         // Hide/disable after first click
         btn.disabled = true;
-        btn.style.display = 'none';
+        btn.style.display = &#39;none&#39;;
         // Show the output action button only now
         try {
-          if (typeof window.__showOutputActionButton === 'function') {
+          if (typeof window.__showOutputActionButton === &#39;function&#39;) {
             window.__showOutputActionButton();
           }
         } catch(e) {}
-        var ft = document.querySelector('footer.footer');
-        if (ft &amp;&amp; typeof ft.scrollIntoView === 'function') {
-          ft.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        var ft = document.querySelector(&#39;footer.footer&#39;);
+        if (ft &amp;&amp; typeof ft.scrollIntoView === &#39;function&#39;) {
+          ft.scrollIntoView({ behavior: &#39;smooth&#39;, block: &#39;end&#39; });
         } else {
-          window.scrollTo({ top: (document.documentElement || document.body).scrollHeight, behavior: 'smooth' });
+          window.scrollTo({ top: (document.documentElement || document.body).scrollHeight, behavior: &#39;smooth&#39; });
         }
       });
     }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init);
+    if (document.readyState === &#39;loading&#39;) {
+      document.addEventListener(&#39;DOMContentLoaded&#39;, init);
     } else {
       init();
     }
