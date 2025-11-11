@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>&lt;!--/**
-*
-* Created By Oxg Tech
-* Oxg Safelink v1.0
-* Author : Syed Alamdar
-* Date	 : 05 November 2025
-* URL 	 : https://youtube.com/@oxgtech
-* Repository : https://github.com/oxgtech-yt/Oxg-Safelink-Blogger-Template
-* License : https://github.com/anasrar/NihLink-Safelink-Template-Blogger/blob/master/LICENSE
-*
-*/<head>--&gt;<b:include name='body'/>&lt;head&gt;
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<!--
+Created By Oxg Tech
+Oxg Safelink v1.0
+Author : Syed Alamdar
+Date  : 05 November 2025
+URL   : https://youtube.com/@oxgtech
+Repository : https://github.com/oxgtech-yt/Oxg-Safelink-Blogger-Template
+License : https://github.com/anasrar/NihLink-Safelink-Template-Blogger/blob/master/LICENSE
+-->
 
 <meta content='width=device-width, initial-scale=1, user-scalable=yes, maximum-scale=1' name='viewport'/>
 <b:if cond='data:blog.pageType == &quot;error_page&quot;'>
@@ -289,8 +289,8 @@ body#layout #page-setting {background: #fffcf2}
   }
 </style>
 
-&lt;!--</head>--&gt;&lt;/head&gt;
-&lt;body itemscope=&#39;itemscope&#39; itemtype=&#39;http://schema.org/WebPage&#39;&gt;
+</head>
+<body itemscope='itemscope' itemtype='http://schema.org/WebPage'>
 
 <div id='fullpage'>
   <div class='container-semifluid'>
@@ -366,8 +366,50 @@ lang: {
         <div class='row'>
 
           <aside aria-label='Left Sidebar' class='col-12 col-md-3 mb-3 sidebar-left'>
-            <b:section class='slot-left-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-left-top' maxwidgets='1' showaddelement='yes' title='Left Sticky Slot 1'/>
-            <b:section class='ads-left-bottom sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='ads-left-bottom' maxwidgets='2' showaddelement='yes' title='Left Sticky Ads'/>
+            <b:section class='slot-left-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-left-top' maxwidgets='1' showaddelement='yes' title='Left Sticky Slot 1'>
+              <b:widget id='HTML1' locked='false' title='' type='HTML' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'><![CDATA[<script type="text/javascript">
+	atOptions = {
+		'key' : '6ac1c20dcaa434a17b2c9d862d814e13',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/6ac1c20dcaa434a17b2c9d862d814e13/invoke.js"></script>]]></b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+              </b:widget>
+            </b:section>
+            <b:section class='ads-left-bottom sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='ads-left-bottom' maxwidgets='2' showaddelement='yes' title='Left Sticky Ads'>
+              <b:widget id='HTML2' locked='false' title='' type='HTML' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'><![CDATA[<script type="text/javascript">
+	atOptions = {
+		'key' : '6ac1c20dcaa434a17b2c9d862d814e13',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/6ac1c20dcaa434a17b2c9d862d814e13/invoke.js"></script>]]></b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+              </b:widget>
+            </b:section>
           </aside>
 
 
@@ -572,7 +614,29 @@ if (!String.prototype.startsWith) {
             </b:if>
 
             <!-- Home: Before Generator Gadget Section -->
-            <b:section class='before-generator-section mb-3' cond='data:blog.pageType == &quot;index&quot;' id='before-generator' maxwidgets='1' showaddelement='yes' title='Before Generator'/>
+            <b:section class='before-generator-section mb-3' cond='data:blog.pageType == &quot;index&quot;' id='before-generator' maxwidgets='1' showaddelement='yes' title='Before Generator'>
+              <b:widget id='HTML5' locked='false' title='' type='HTML' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'><![CDATA[<center>
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5142374160000499" crossorigin="anonymous"></script>
+<!-- 728x90_11 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5142374160000499"
+     data-ad-slot="6355784696"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center>]]></b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+              </b:widget>
+            </b:section>
 
             <b:if cond='data:view.isMultipleItems'>
 
@@ -1152,7 +1216,29 @@ if (!String.prototype.startsWith) {
             </b:section>
 
             <!-- After Post Gadget Section -->
-            <b:section class='after-post-section mt-3' cond='data:blog.pageType == &quot;index&quot;' id='after-post' maxwidgets='3' showaddelement='yes' title='After Post'/>
+            <b:section class='after-post-section mt-3' cond='data:blog.pageType == &quot;index&quot;' id='after-post' maxwidgets='3' showaddelement='yes' title='After Post'>
+              <b:widget id='HTML6' locked='false' title='' type='HTML' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'><![CDATA[<center>
+<script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5142374160000499" crossorigin="anonymous"></script>
+<!-- 728x90_11 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5142374160000499"
+     data-ad-slot="6355784696"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center>]]></b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+              </b:widget>
+            </b:section>
 
             <b:section cond='false' id='reset'/>
 
@@ -1160,8 +1246,50 @@ if (!String.prototype.startsWith) {
 
 
           <div class='col-12 col-md-3 order-last mb-3'>
-            <b:section class='slot-right-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-right-top' maxwidgets='1' showaddelement='yes' title='Right Sticky Slot 3'/>
-            <b:section class='slot-right-bottom sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-right-bottom' maxwidgets='2' showaddelement='yes' title='Right Sticky Slots'/>
+            <b:section class='slot-right-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-right-top' maxwidgets='1' showaddelement='yes' title='Right Sticky Slot 3'>
+              <b:widget id='HTML3' locked='false' title='' type='HTML' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'><![CDATA[<script type="text/javascript">
+	atOptions = {
+		'key' : '6ac1c20dcaa434a17b2c9d862d814e13',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/6ac1c20dcaa434a17b2c9d862d814e13/invoke.js"></script>]]></b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+              </b:widget>
+            </b:section>
+            <b:section class='slot-right-bottom sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-right-bottom' maxwidgets='2' showaddelement='yes' title='Right Sticky Slots'>
+              <b:widget id='HTML4' locked='false' title='' type='HTML' visible='true'>
+                <b:widget-settings>
+                  <b:widget-setting name='content'><![CDATA[<script type="text/javascript">
+	atOptions = {
+		'key' : '6ac1c20dcaa434a17b2c9d862d814e13',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/6ac1c20dcaa434a17b2c9d862d814e13/invoke.js"></script>]]></b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main'>
+  <b:include name='widget-title'/>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+</b:includable>
+              </b:widget>
+            </b:section>
           </div>
 
         </div>
@@ -1289,5 +1417,6 @@ if (!String.prototype.startsWith) {
   })();
 </script>
 
-<b:defaultmarkups><b:defaultmarkup type='Common'><b:includable id='body'><b:if cond='data:view.isPreview'><body/><b:else/>&lt;!--<body/>--&gt;</b:if></b:includable></b:defaultmarkup></b:defaultmarkups>&lt;/body&gt;
+<b:defaultmarkups><b:defaultmarkup type='Common'><b:includable id='body'><b:if cond='data:view.isPreview'><body/><b:else/><!-- body placeholder (disabled) --></b:if></b:includable></b:defaultmarkup></b:defaultmarkups>
+</body>
 </html>
