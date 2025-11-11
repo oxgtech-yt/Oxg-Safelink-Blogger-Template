@@ -25,6 +25,8 @@ License : https://github.com/anasrar/NihLink-Safelink-Template-Blogger/blob/mast
 <script src='//code.jquery.com/jquery-2.1.4.min.js' type='text/javascript'/>
 <script src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js'/>
 <script src='//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js'/>
+<!-- Global AdSense loader: ensures ads render across all page types -->
+<script async='async' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5142374160000499' crossorigin='anonymous'></script>
 
 <script type='text/javascript'>
 &quot;use strict&quot;;
@@ -277,6 +279,7 @@ body#layout #page-setting {background: #fffcf2}
   .slot-right-top.sticky-top { top: var(--ad-sticky-offset); }
   .ads-left-bottom.sticky-top,
   .slot-right-bottom.sticky-top { top: calc(var(--ad-sticky-offset) + var(--ad-height) + var(--ad-vertical-gap)); }
+  /* Sticky enabled by default; runtime JS will unstick if AdSense is present */
   /* Move left sidebar closer to the page edge */
   .sidebar-left { padding-left: 0 !important; margin-left: -36px; margin-right: clamp(12px, 2.5vw, 28px); }
   @media (max-width: 767px) { .sidebar-left { margin-left: 0; margin-right: 0; } }
@@ -288,6 +291,46 @@ body#layout #page-setting {background: #fffcf2}
     }
   }
 </style>
+
+<script type='text/javascript'>
+  (function(){
+    function ensureStickyUnlessAdsense(el){
+      try {
+        if (!el) return;
+        var hasAdsense = el.querySelector('.adsbygoogle');
+        if (hasAdsense) {
+          el.classList.remove('sticky-top');
+          el.style.position = 'static';
+          el.style.top = 'auto';
+        } else {
+          if (!el.classList.contains('sticky-top')) {
+            el.classList.add('sticky-top');
+          }
+        }
+      } catch(e) {}
+    }
+    function init(){
+      var ids = ['slot-left-top','ads-left-bottom','slot-right-top','slot-right-bottom'];
+      for (var i=0;i&lt;ids.length;i++){
+        var el = document.getElementById(ids[i]);
+        ensureStickyUnlessAdsense(el);
+        try {
+          if (el) {
+            var obs = new MutationObserver(function(){
+              ensureStickyUnlessAdsense(el);
+            });
+            obs.observe(el, { childList: true, subtree: true });
+          }
+        } catch(e) {}
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
 
 </head>
 <body itemscope='itemscope' itemtype='http://schema.org/WebPage'>
@@ -369,16 +412,8 @@ lang: {
             <b:section class='slot-left-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-left-top' maxwidgets='1' showaddelement='yes' title='Left Sticky Slot 1'>
               <b:widget id='HTML1' locked='false' title='' type='HTML' visible='true'>
                 <b:widget-settings>
-                  <b:widget-setting name='content'><![CDATA[<script type="text/javascript">
-	atOptions = {
-		'key' : '6ac1c20dcaa434a17b2c9d862d814e13',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/6ac1c20dcaa434a17b2c9d862d814e13/invoke.js"></script>]]></b:widget-setting>
+                  <b:widget-setting name='content'><![CDATA[
+]]></b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -391,16 +426,8 @@ lang: {
             <b:section class='ads-left-bottom sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='ads-left-bottom' maxwidgets='2' showaddelement='yes' title='Left Sticky Ads'>
               <b:widget id='HTML2' locked='false' title='' type='HTML' visible='true'>
                 <b:widget-settings>
-                  <b:widget-setting name='content'><![CDATA[<script type="text/javascript">
-	atOptions = {
-		'key' : '6ac1c20dcaa434a17b2c9d862d814e13',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/6ac1c20dcaa434a17b2c9d862d814e13/invoke.js"></script>]]></b:widget-setting>
+                  <b:widget-setting name='content'><![CDATA[
+]]></b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -1249,16 +1276,14 @@ if (!String.prototype.startsWith) {
             <b:section class='slot-right-top sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-right-top' maxwidgets='1' showaddelement='yes' title='Right Sticky Slot 3'>
               <b:widget id='HTML3' locked='false' title='' type='HTML' visible='true'>
                 <b:widget-settings>
-                  <b:widget-setting name='content'><![CDATA[<script type="text/javascript">
-	atOptions = {
-		'key' : '6ac1c20dcaa434a17b2c9d862d814e13',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/6ac1c20dcaa434a17b2c9d862d814e13/invoke.js"></script>]]></b:widget-setting>
+                  <b:widget-setting name='content'><![CDATA[
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-5142374160000499"
+     data-ad-slot="9379078441"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>]]></b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -1271,16 +1296,14 @@ if (!String.prototype.startsWith) {
             <b:section class='slot-right-bottom sticky-top' cond='data:view.isSingleItem or data:blog.pageType == &quot;static_page&quot; or data:view.isPreview' id='slot-right-bottom' maxwidgets='2' showaddelement='yes' title='Right Sticky Slots'>
               <b:widget id='HTML4' locked='false' title='' type='HTML' visible='true'>
                 <b:widget-settings>
-                  <b:widget-setting name='content'><![CDATA[<script type="text/javascript">
-	atOptions = {
-		'key' : '6ac1c20dcaa434a17b2c9d862d814e13',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/6ac1c20dcaa434a17b2c9d862d814e13/invoke.js"></script>]]></b:widget-setting>
+                  <b:widget-setting name='content'><![CDATA[
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-5142374160000499"
+     data-ad-slot="9379078441"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>]]></b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
   <b:include name='widget-title'/>
@@ -1413,6 +1436,33 @@ if (!String.prototype.startsWith) {
       document.addEventListener(&#39;DOMContentLoaded&#39;, init);
     } else {
       init();
+    }
+  })();
+</script>
+
+<!-- Disable sticky-top on ad slot containers when they contain AdSense units -->
+<script type='text/javascript'>
+  (function(){
+    function unstickAdsense(){
+      try {
+        var selectors = [
+          '.slot-left-top.sticky-top',
+          '.slot-right-top.sticky-top',
+          '.ads-left-bottom.sticky-top',
+          '.slot-right-bottom.sticky-top'
+        ];
+        selectors.forEach(function(sel){
+          var el = document.querySelector(sel);
+          if (el &amp;&amp; el.querySelector('.adsbygoogle')) {
+            el.classList.remove('sticky-top');
+          }
+        });
+      } catch(e) {}
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', unstickAdsense);
+    } else {
+      unstickAdsense();
     }
   })();
 </script>
