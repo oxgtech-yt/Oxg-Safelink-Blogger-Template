@@ -22,7 +22,7 @@ On **HTML** Mode
 **For Loading Bar**       ```<div id="loadingbar"></div>```<br>
 **For SafeLink Timer**     ```<div id='output'></div>```
 
-more information watch video: https://youtube.com/@oxgtech
+more information watch video: [https://youtube.com/@oxgtech](https://youtu.be/Pyr1Qyp4hg0)
 
 
 
